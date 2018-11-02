@@ -49,6 +49,7 @@
       <option>adobeanalytics</option>
       <option>adobeanalytics_nativeConfig</option>
       <option>alexametrics</option>
+      <option>amplitude</option>
       <option>atinternet</option>
       <option>afsanalytics</option>
       <option>baiduanalytics</option>
@@ -211,6 +212,42 @@ For complete documentation and additional examples please see: https://marketing
 </script>
 </amp-analytics>
 <!-- End Alexa tracking -->
+
+<!-- Amplitude example -->
+<amp-analytics type="amplitude" id="amplitude">
+  <script type="application/json">
+  {
+    "vars": {
+      "apiKey": "20bbe499ee6e070ebdf447e52f6b2457"
+    },
+    "triggers": {
+      "click": {
+        "on": "click",
+        "selector": "#test1",
+        "request": "event",
+        "vars": {
+          "eventType": "click"
+        },
+        "extraUrlParams": {
+          "eventProperties.button_id": "test1"
+        }
+      },
+      "pageView": {
+        "on": "visible",
+        "request": "event",
+        "vars": {
+          "eventType": "page view"
+        },
+        "extraUrlParams": {
+          "eventProperties:page id": "analytics vendors",
+          "userProperties:blah": "bar",
+          "groups:company": "Google"
+        }
+      }
+    }
+  }
+  </script>
+  </amp-analytics>
 
 <!-- AT Internet tracking -->
 <amp-analytics type="atinternet" id="atinternet">
@@ -1101,7 +1138,7 @@ For complete documentation and additional examples please see: https://marketing
 <amp-analytics type="teaanalytics" id="teaanalytics">
   <script type="application/json">
     {
-      "vars": {        
+      "vars": {
         "app_id": "APP_ID",
         "channel": "example.com",
         "debug": 0
@@ -1144,7 +1181,7 @@ For complete documentation and additional examples please see: https://marketing
       "request": "pageview",
       "vars": {
         "tealium_event": "screen_view"
-      }     
+      }
     },
     "clickOnTest1Trigger": {
       "on": "click",
